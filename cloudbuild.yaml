@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
-  args: ['build', 'http-echo']
+  args: ['build', .]
   env: ['PROJECT_ROOT=http-echo']
 artifacts:
   objects:
