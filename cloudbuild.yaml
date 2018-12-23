@@ -5,4 +5,4 @@ steps:
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'http-echo', 'gs://erik-playground/http-echo']
 - name: 'gcr.io/cloud-builders/curl'
-  args: ['-vvv', 'http://35.240.110.110:4646/v1/jobs']
+  args: ['-v', '-X', 'POST', '-d', '@http-echo.nomad', 'http://35.240.110.110:4646/v1/jobs']
