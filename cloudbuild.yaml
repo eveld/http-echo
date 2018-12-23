@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/go'
+  args: ['install', '.']
+  env: ['PROJECT_ROOT=http-echo']
+- name: 'gcr.io/cloud-builders/go'
+  args: ['build', 'http-echo']
+  env: ['PROJECT_ROOT=http-echo']
+artifacts:
+  objects:
+    location: 'gs://erik-playground/'
+    paths: ['http-echo']
