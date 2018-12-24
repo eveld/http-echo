@@ -12,17 +12,27 @@
             "Count": 1,
             "Tasks": [{
                 "Name": "http-echo",
-                "Driver": "exec",
+                "Driver": "docker",
                 "User": "",
-                "Artifacts": [{
-                  "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app"
-                }],
                 "Config": {
-                    "command": "app"
+                    "image": "gcr.io/erik-playground/github_eveld_http-echo",
+                    "port_map": [{
+                        "http": 80
+                    }]
                 },
                 "Resources": {
                     "CPU": 500,
-                    "MemoryMB": 256
+                    "MemoryMB": 256,
+                    "Networks": [{
+                        "Device": "",
+                        "CIDR": "",
+                        "IP": "",
+                        "MBits": 10,
+                        "DynamicPorts": [{
+                            "Label": "http",
+                            "Value": 0
+                        }]
+                    }]
                 },
                 "Leader": false
             }],
