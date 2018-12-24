@@ -34,12 +34,7 @@
                 "Mode": "delay"
             },
             "ReschedulePolicy": {
-                "Attempts": 10,
-                "Delay": 30000000000,
-                "DelayFunction": "exponential",
-                "Interval": 10,
-                "MaxDelay": 3600000000000,
-                "Unlimited": true
+                "Attempts": 0
             },
             "EphemeralDisk": {
                 "SizeMB": 300
