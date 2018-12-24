@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
-  args: ['build', 'src']
+  args: ['build', 'http-echo']
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'http-echo', 'gs://erik-playground/http-echo']
 - name: 'gcr.io/cloud-builders/curl'
