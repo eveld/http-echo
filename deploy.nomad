@@ -16,7 +16,7 @@
                 "User": "",
                 "Artifacts": [{
                   "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app",
-                  "RelativeDest": "local/"
+                  "RelativeDest": "/usr/bin/"
                 }],
                 "Config": {
                     "command": "local/app"
