@@ -15,11 +15,11 @@
                 "Driver": "exec",
                 "User": "",
                 "Artifacts": [{
-                  "GetterSource": "https://storage.googleapis.com/erik-playground/http-echo",
+                  "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app",
                   "RelativeDest": "local/"
                 }],
                 "Config": {
-                    "command": "http-echo"
+                    "command": "app"
                 },
                 "Resources": {
                     "CPU": 500,
