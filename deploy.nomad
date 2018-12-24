@@ -19,7 +19,7 @@
                   "RelativeDest": "/usr/bin/"
                 }],
                 "Config": {
-                    "command": "local/app"
+                    "command": "app"
                 },
                 "Resources": {
                     "CPU": 500,
