@@ -5,6 +5,6 @@ COPY src /workspace/src/
 
 RUN go install app
 
-FROM gcr.io/erik-playground/app
+FROM debian
 
 COPY --from=build /workspace/bin/app /bin/app
