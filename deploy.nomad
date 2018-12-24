@@ -15,7 +15,7 @@
                 "Driver": "docker",
                 "User": "",
                 "Config": {
-                    "image": "gcr.io/erik-playground/github_eveld_http-echo",
+                    "image": "gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA",
                     "port_map": [{
                         "http": 80
                     }]
