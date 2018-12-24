@@ -15,11 +15,11 @@
                 "Driver": "exec",
                 "User": "",
                 "Artifacts": [{
-                  "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app",
-                  "RelativeDest": "/usr/bin/"
+                  "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app"
                 }],
                 "Config": {
-                    "command": "/usr/bin/app"
+                    "command": "ls",
+                    "args": ["-lha"]
                 },
                 "Resources": {
                     "CPU": 500,
