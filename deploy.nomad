@@ -19,7 +19,7 @@
                 }],
                 "Config": {
                     "command": "ls",
-                    "args": ["-lha"]
+                    "args": ["-lha", "local"]
                 },
                 "Resources": {
                     "CPU": 500,
