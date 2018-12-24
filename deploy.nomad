@@ -12,7 +12,7 @@
             "Count": 1,
             "Tasks": [{
                 "Name": "http-echo",
-                "Driver": "raw_exec",
+                "Driver": "exec",
                 "User": "",
                 "Artifacts": [{
                   "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app",
