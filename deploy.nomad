@@ -18,8 +18,7 @@
                   "GetterSource": "https://storage.googleapis.com/erik-playground/github_eveld_http-echo/app"
                 }],
                 "Config": {
-                    "command": "ls",
-                    "args": ["-lha", "local"]
+                    "command": "local/app"
                 },
                 "Resources": {
                     "CPU": 500,
