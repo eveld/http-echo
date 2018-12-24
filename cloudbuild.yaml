@@ -1,7 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/go'
-  args: ['build', 'http-echo']
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'http-echo', 'gs://erik-playground/http-echo']
-- name: 'gcr.io/cloud-builders/curl'
-  args: ['-v', '-d', '@http-echo.nomad', 'http://35.240.97.208:4646/v1/jobs']
