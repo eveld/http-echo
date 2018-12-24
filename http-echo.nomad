@@ -1,69 +1,56 @@
-job "echo" {
-  datacenters = ["dc1"]
-  type = "service"
-  update {
-    max_parallel = 1
-    min_healthy_time = "10s"
-    healthy_deadline = "3m"
-    progress_deadline = "10m"
-    auto_revert = false
-    canary = 0
-  }
-
-  migrate {
-    max_parallel = 1
-    health_check = "checks"
-    min_healthy_time = "10s"
-    healthy_deadline = "5m"
-  }
-
-  group "server" {
-    count = 1
-    restart {
-      attempts = 2
-      interval = "30m"
-      delay = "15s"
-      mode = "fail"
-    }
-
-    ephemeral_disk {
-      size = 300
-    }
-
-    task "http-echo" {
-      driver = "exec"
-
-      config {
-        command = "http-echo"
-        port_map {
-          http = 80
+{
+    "Job": {
+        "ID": "echo",
+        "Name": "echo",
+        "Type": "service",
+        "Priority": 50,
+        "Datacenters": [
+            "dc1"
+        ],
+        "TaskGroups": [{
+            "Name": "echo",
+            "Count": 1,
+            "Tasks": [{
+                "Name": "http-echo",
+                "Driver": "exec",
+                "User": "",
+                "Artifacts": [{
+                  "GetterSource": "https://storage.googleapis.com/erik-playground/http-echo",
+                  "RelativeDest": "local/"
+                }],
+                "Config": {
+                    "command": "http-echo"
+                },
+                "Resources": {
+                    "CPU": 500,
+                    "MemoryMB": 256
+                },
+                "Leader": false
+            }],
+            "RestartPolicy": {
+                "Interval": 300000000000,
+                "Attempts": 10,
+                "Delay": 25000000000,
+                "Mode": "delay"
+            },
+            "ReschedulePolicy": {
+                "Attempts": 10,
+                "Delay": 30000000000,
+                "DelayFunction": "exponential",
+                "Interval": 0,
+                "MaxDelay": 3600000000000,
+                "Unlimited": true
+            },
+            "EphemeralDisk": {
+                "SizeMB": 300
+            }
+        }],
+        "Update": {
+            "MaxParallel": 1,
+            "MinHealthyTime": 10000000000,
+            "HealthyDeadline": 180000000000,
+            "AutoRevert": false,
+            "Canary": 0
         }
-      }
-
-      artifact {
-        source = "https://storage.googleapis.com/erik-playground/http-echo"
-      }
-
-      resources {
-        cpu    = 500 # 500 MHz
-        memory = 256 # 256MB
-        network {
-          mbits = 10
-          port "db" {}
-        }
-      }
-
-      service {
-        name = "http-echo"
-        tags = ["global", "echo"]
-        port = "http"
-        check {
-          name     = "alive"
-          type     = "tcp"
-          interval = "10s"
-          timeout  = "2s"
-        }
-      }
     }
-  }
 }
