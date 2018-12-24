@@ -19,7 +19,7 @@
                   "RelativeDest": "local/"
                 }],
                 "Config": {
-                    "command": "app"
+                    "command": "http-echo/local/app"
                 },
                 "Resources": {
                     "CPU": 500,
