@@ -15,7 +15,7 @@
                 "Driver": "docker",
                 "User": "",
                 "Config": {
-                    "image": "gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA",
+                    "image": "%IMAGE%",
                     "port_map": [{
                         "http": 80
                     }]
