@@ -4,5 +4,5 @@ steps:
 - name: 'gcr.io/erik-playground/sed'
   args: ['sh', '-c', 'jq .Job.TaskGroups[].Tasks[].Config.image=\"gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA\" deploy.nomad | sponge deploy.nomad']
 - name: 'gcr.io/cloud-builders/curl'
-  args: ['-v', '-d', '@deploy.nomad', 'http://35.241.146.251:4646/v1/jobs']
+  args: ['-v', '-d', '@deploy.nomad', 'http://35.195.132.237:4646/v1/jobs']
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
