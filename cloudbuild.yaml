@@ -2,6 +2,6 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
 - name: 'gcr.io/erik-playground/sed'
-  args: ["sed", "-i", "'s|%IMAGE%|gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA|g'", "deploy.nomad"]
+  args: ['sh', '-c', 'jq .Job.TaskGroups[].Tasks[].Config.image=\"gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA\" deploy.nomad | sponge deploy.nomad']
 - name: 'gcr.io/cloud-builders/curl'
   args: ['-v', '-d', '@deploy.nomad', 'http://35.240.97.208:4646/v1/jobs']
