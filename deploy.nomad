@@ -18,7 +18,10 @@
                     "image": "%IMAGE%",
                     "port_map": [{
                         "http": 80
-                    }]
+                    }],
+                    "auth": {
+                        "server_address": "gcr.io"
+                    }
                 },
                 "Resources": {
                     "CPU": 500,
