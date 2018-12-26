@@ -19,9 +19,9 @@
                     "port_map": [{
                         "http": 80
                     }],
-                    "auth": {
+                    "auth": [{
                         "server_address": "gcr.io"
-                    }
+                    }]
                 },
                 "Resources": {
                     "CPU": 500,
