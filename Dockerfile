@@ -8,3 +8,4 @@ RUN go install app
 FROM debian
 
 COPY --from=build /workspace/bin/app /bin/app
+ENTRYPOINT "/bin/app"
