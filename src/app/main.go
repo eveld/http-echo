@@ -8,11 +8,15 @@ import (
 	"strings"
 )
 
+// VERSION is the version of this application.
+const VERSION = "0.0.1"
+
 func handler(rw http.ResponseWriter, req *http.Request) {
 	s := []string{
 		fmt.Sprintf("%s %s %s", req.Method, req.URL.RequestURI(), req.Proto),
 		fmt.Sprintf("Host: %s", req.Host),
 		fmt.Sprintf("Content-Length: %d", req.ContentLength),
+		fmt.Sprintf("Version: %s", VERSION),
 	}
 
 	for k, v := range req.Header {
