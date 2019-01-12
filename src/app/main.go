@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
-	"os"
 	"strings"
 )
 
@@ -27,7 +26,7 @@ func handler(rw http.ResponseWriter, req *http.Request) {
 	buf.ReadFrom(req.Body)
 	body := buf.String()
 	if body != "" {
-		s = append(s, "\n"+body)
+		s = append(s, body)
 	}
 
 	fmt.Fprint(rw, strings.Join(s, "\n"))
@@ -35,10 +34,5 @@ func handler(rw http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/", handler)
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "80"
-	}
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":80", nil)
 }
