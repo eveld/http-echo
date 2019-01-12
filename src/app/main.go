@@ -8,7 +8,7 @@ import (
 )
 
 // VERSION is the version of this application.
-const VERSION = "0.0.2"
+const VERSION = "0.0.1"
 
 func handler(rw http.ResponseWriter, req *http.Request) {
 	s := []string{
