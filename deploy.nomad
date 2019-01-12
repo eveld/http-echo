@@ -19,7 +19,7 @@ job "http-echo" {
   }
 
   group "group" {
-    count = 2
+    count = 1
 
     restart {
       attempts = 2
